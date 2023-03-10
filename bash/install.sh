@@ -4,12 +4,12 @@ sudo apt-get update
 sudo apt upgrade -y 
 sudo apt install nodejs npm git -y
 
-git clone 
+git clone https://github.com/hschickdevs/csgo-group-bot.git
 
 echo -n "alias configure-bot='cd ~/csgo-group-bot/util && clear && node ./configureSync.js'" >> ~/.bashrc
 echo -n "alias start-bot='cd ~/csgo-group-bot && clear && node ./bot.js'" >> ~/.bashrc
 
 clear
 
-echo "Successfully provisioned and installed npm version $(npm -v)!"
+echo "Successfully provisioned and installed csgo-group-bot and npm version $(npm -v)!"
 echo "Please reboot the machine to finish setup using 'sudo reboot'"
