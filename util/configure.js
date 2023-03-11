@@ -3,7 +3,7 @@
 var SteamCommunity = require('steamcommunity');
 const ReadLine = require('readline');
 const prompt = require('prompt-sync')({ sigint: true });
-var configTemplate = require('../config/config.template.json');
+let configTemplate = require('../config/config.template.json');
 const fs = require('fs');
 
 // var SteamID = SteamCommunity.SteamID;
@@ -18,6 +18,8 @@ console.log("Starting configuration script... Use CTRL + C to Quit at any time.\
 
 const steamUsername = prompt("Steam Username: ");
 const steamPassword = prompt("Steam Password: ");
+configTemplate.username = steamUsername;
+configTemplate.password = steamPassword;
 
 console.log("Authentication started...\n")
 run(steamUsername, steamPassword);
@@ -117,6 +119,7 @@ function run(accountName, password, authCode, twoFactorCode, captcha) {
                                 console.log("* " + groups[i] + " (" + groupNames[i] + ")");
                             }
                         }
+                        configTemplate.groups = groups;
 
                         console.log("");
                         const messageLocation = prompt("Use Pastebin or Local Text File for Message? (pastebin/local): ");

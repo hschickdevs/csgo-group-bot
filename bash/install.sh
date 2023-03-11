@@ -2,12 +2,18 @@
 # This bash script is meant to be used to provision a Debian system with root level access for csgo-group-bot operation
 sudo apt-get update
 sudo apt upgrade -y 
-sudo apt install nodejs npm git -y
+sudo apt install nodejs npm git tmux -y
 
 git clone https://github.com/hschickdevs/csgo-group-bot.git
 
-echo -n "alias configure-bot='cd ~/csgo-group-bot/util && clear && node ./configureSync.js'" >> ~/.bashrc
-echo -n "alias start-bot='cd ~/csgo-group-bot && clear && node ./bot.js'" >> ~/.bashrc
+# npm install pm2@latest -g
+
+echo -n "alias configure-bot='cd ~/csgo-group-bot/util && clear && node ./configure.js'" >> ~/.bashrc
+echo -e "\nalias start-bot='cd ~/csgo-group-bot && clear && node ./bot.js'" >> ~/.bashrc
+
+cd ~/csgo-group-bot
+
+npm install
 
 clear
 
